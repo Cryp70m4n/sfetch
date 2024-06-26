@@ -11,7 +11,6 @@
 #include "../include/config.h"
 
 
-
 char **readFileLines(const char *filename, int *numLines) {
     FILE *file;
     char **lines = NULL;
@@ -126,7 +125,7 @@ int main(int argc, char *argv[]) {
 		return -5;
 	}
 	while(newLineCounter < MINIMAL_RESOURCE_SIZE) {		
-		for(int i = 0; i < lineLen; i++) {
+		for(unsigned long i = 0; i < lineLen; i++) {
 			newLine[i] = ' ';
 		}
 		lines[newLineCounter++] = newLine;
@@ -139,7 +138,7 @@ int main(int argc, char *argv[]) {
 		fetchShell(sysInfo, pwd);
 		fetchTerminal(sysInfo);
 		int userHostLen = strlen(sysInfo->user)+strlen(sysInfo->hostname)+1;
-		int ShellTermLen = strlen(sysInfo->terminal)+strlen(sysInfo->shell)+1;
+		//int ShellTermLen = strlen(sysInfo->terminal)+strlen(sysInfo->shell)+1;
 		
 		PRINT_COLORED_TEXT_NO_NEW_LINE(lineColor, "%s", lines[currentLine++]);
 		PRINT_COLORED_TEXT(mainColor, "%s@%s", sysInfo->user, sysInfo->hostname);	
